@@ -1,0 +1,192 @@
+.app-view-project-analyse {
+    .timeBtn {
+        width: 60px !important;
+    }
+    .category {
+        margin-left: 5px;
+        width: 231px;
+        height: 90px;
+        border-radius: 10px;
+        border: 1px solid #d4ecff;
+    }
+    .else {
+        margin-left: 5px;
+        width: 25px;
+        color: #d4ecff;
+        height: 90px;
+        border-radius: 10px;
+        border: 1px solid #d4ecff;
+        background-color: rgba(0, 0, 0, 0.1);
+        position: relative;
+        .more {
+            position: absolute;
+            z-index: 9999;
+            width: 80px;
+            top: 90px;
+            left: -50px;
+            background: #789FbF;
+            padding: 5px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .hide {
+            display: none;
+        }
+        .show {
+            display: block;
+        }
+    }
+    .ml9 {
+        margin-left: 9px;
+    }
+    .ml23 {
+        margin-left: 23px;
+    }
+    .ml27 {
+        margin-left: 27px;
+    }
+    .ml28 {
+        margin-left: 28px;
+    }
+    .ml45 {
+        margin-left: 45px;
+    }
+    .ml84 {
+        margin-left: 84px;
+    }
+    .ml92 {
+        margin-left: 92px;
+    }
+    .ele {
+        background: url(/app/img/ele.gif) 20px 10px no-repeat;
+        background-color: rgba(0, 0, 0, 0.1);
+        background-size: 40px;
+    }
+    .coldwater {
+        background: url(/app/img/coldwater.gif) 20px 10px no-repeat;
+        background-color: rgba(0, 0, 0, 0.1);
+        background-size: 40px;
+    }
+    .temp {
+        background: url(/app/img/temp.gif) 20px 10px no-repeat;
+        background-color: rgba(0, 0, 0, 0.1);
+        background-size: 40px;
+    }
+    .fee {
+        background: url(/app/img/fee.gif) 20px 10px no-repeat;
+        background-color: rgba(0, 0, 0, 0.1);
+        background-size: 40px;
+    }
+    .analyse-content {
+        margin-left: 20px;
+    }
+    .chart-icon {
+        right: -30px;
+        top: -8px;
+    }
+    .chart-head {
+        background: #E6E4E4;
+        padding: 4px 10px;
+    }
+    .chart-body {
+        background: #FBFAFA;
+        padding-bottom: 0;
+        border-radius: 0 0 10px 10px;
+    }
+    .flex {
+        display: flex;
+        flex-direction: row;
+        .flex-tab-left {
+            flex: 1 1 auto;
+        }
+        .flex-tab-right {
+            flex: 0 1 auto;
+            width: 0;
+            transition: width 0.35s ease-in-out;
+        }
+    }
+    .form-control:focus {
+        border-color: #DBE2EA !important;
+    }
+    .no-point {
+        cursor: default !important;
+    }
+    .ml420 {
+        margin-left: 420px;
+    }
+    .jstree-default .jstree-clicked {
+        color: #3ACBE4;
+        background: none;
+    }
+    .time {
+        list-style: none;
+        .form-group,
+        .input-group {
+            width: auto;
+            margin-left: 15px;
+            &>.form-control {
+                max-width: 120px;
+            }
+        }
+        &>li.active>a {
+            border: 1px solid #DDD;
+            border-color: #ddd #ddd transparent;
+        }
+    }
+    .jstree-default .jstree-anchor:hover {
+        color: #2FC7E0;
+    }
+    .jstree-default .jstree-clicked {
+        background: #beebff;
+        border-radius: 2px;
+        box-shadow: inset 0 0 1px #999;
+    } // TODO: 2018年04月24日14:38:34
+    .btn.btn-sm.timeBtn.ml10.ng-binding.ng-scope {
+        background-color: transparent;
+        color: #000000;
+    }
+    .ui-grid-cell-contents.ng-scope {
+        span {
+            color: #000000;
+        }
+    }
+    .ui-grid-cell-contents.ui-grid-header-cell-primary-focus {
+        .ui-grid-header-cell-label.ng-binding {
+            color: #000000;
+        }
+    }
+    .btn.active {
+        background-color: transparent !important;
+    }
+    .form-control.btn.active.ng-pristine.ng-untouched.ng-valid.ng-not-empty {
+        border-width: 1px;
+    }
+    .flex-tab-right.mt5.p0 {
+        .btn.btn-sm.col-sm-4.pull-left.ng-binding.ng-scope:hover {
+            color: #000000;
+            background-color: rgba(122, 206, 243, .3) !important;
+        }
+        .active {
+            background-color: rgba(122, 206, 243, .3) !important;
+        }
+    } // .pull-right.form-inline{
+    .btn:hover {
+        color: #000000;
+    }
+    button.btn.active:hover {
+        border: 0 none;
+    } // }
+    .colorgray.ml10.ng-binding.ng-scope.timeactive:hover,
+    .colorgray.ml10.ng-binding.ng-scope.timeactive {
+        background-color: rgba(122, 206, 243, .3) !important;
+    }
+    .btn.btn-sm.timeBtn.ml10.ng-binding.ng-scope.ml20.active:hover,
+    .btn.btn-sm.timeBtn.ml10.ng-binding.ng-scope.ml20.active {
+        background-color: rgba(122, 206, 243, .3) !important;
+        border: 0 none;
+    }
+    .colorgray.ml10.pointer.timeactive:hover,
+    .colorgray.ml10.pointer.timeactive {
+        background-color: rgba(122, 206, 243, .3) !important;
+    }
+}

@@ -1,1 +1,120 @@
-<div class="app-view-dashboard"><nav class="navbar navbar-default" ng-class="{'ml0':!$ctrl.shownav,'display-none':$ctrl.main}"><ul class="headnav pull-left" ng-show="$root.shownav"><li class="navhover ml10" ng-repeat="item in $ctrl.menuData" ng-class="{navactive:$ctrl.menuData.active===item.state}" style="line-height: 53px;" class="ml15"><a ui-sref="{{::item.state}}" style="color: #d4ecff"><i style="font-size: 18px" ng-class="::item.icon"></i> <span style="vertical-align: 3%;">{{item.name}}</span></a></li></ul><div class="pull-right"><div class="btn-group" style="margin-top: 14px;color: #d4ecff">{{$ctrl.title}}</div><div class="btn-group p-r"><button ng-click="$ctrl.set=!$ctrl.set" style="height: 100%;background: transparent;border: 0;color: #d4ecff;outline: 0;"><i class="emweb web-user"></i> <small>{{$ctrl.uid}}▼</small></button><div class="set p-a" style="z-index: 9999;right: 1px;border: 1px solid #D5D5D5;" ng-if="$ctrl.set"><div><button><i class="iconfont energy-set"></i> <span class="ml20">设置</span></button></div><div><button ng-click="$ctrl.logout()"><i class="iconfont energy-log-out"></i> <span class="ml20">退出</span></button></div></div></div></div><div class="pull-left nav-title mt15 ml10" ng-if="$ctrl.dashboard">天气：{{$ctrl.weather}}&nbsp&nbsp温度：{{$ctrl.temperature}}℃&nbsp&nbsp风向：{{$ctrl.wind_direction}}&nbsp&nbsp风力：{{$ctrl.wind_power}}&nbsp&nbsp空气质量指数：{{$ctrl.aqi}}&nbsp&nbsppm2.5：{{$ctrl.pm25}}&nbsp&nbsp湿度：{{$ctrl.humidity}}</div></nav><div class="view-content-fullscreen" ng-class="{'top0':$ctrl.main}" style="height: 100%;" ui-view></div></div>
+<div class="app-view-dashboard"><nav class="navbar navbar-default" ng-class="{'ml0':!$ctrl.shownav,'display-none':$ctrl.main}"><ul class="headnav pull-left" ng-show="$root.shownav"><li class="navhover ml10" ng-repeat="item in $ctrl.menuData" ng-class="{navactive:$ctrl.menuData.active===item.state}" style="line-height: 53px;" class="ml15"><a ui-sref="{{::item.state}}" style="color: #d4ecff"><i style="font-size: 18px" ng-class="::item.icon"></i> <span style="vertical-align: 3%;">{{item.name}}</span></a></li></ul><div class="pull-right"><div class="btn-group" style="margin-top: 14px;color: #d4ecff">{{$ctrl.title}}</div><div class="btn-group p-r"><button ng-click="$ctrl.showset=!$ctrl.showset" style="height: 100%;background: transparent;border: 0;color: #d4ecff;outline: 0;"><i class="emweb web-user"></i> <small>{{$ctrl.uid}}▼</small></button><div class="set p-a" style="z-index: 1000;right: 1px;border: 1px solid #D5D5D5;" ng-if="$ctrl.showset"><div><button ng-click="$ctrl.set()"><i class="iconfont energy-set"></i> <span class="ml20">设置</span></button></div><div><button ng-click="$ctrl.logout()"><i class="iconfont energy-log-out"></i> <span class="ml20">退出</span></button></div></div></div></div><div class="pull-left nav-title mt15 ml10" ng-if="$ctrl.dashboard">天气：{{$ctrl.weather}}&nbsp&nbsp温度：{{$ctrl.temperature}}℃&nbsp&nbsp风向：{{$ctrl.wind_direction}}&nbsp&nbsp风力：{{$ctrl.wind_power}}&nbsp&nbsp空气质量指数：{{$ctrl.aqi}}&nbsp&nbsppm2.5：{{$ctrl.pm25}}&nbsp&nbsp湿度：{{$ctrl.humidity}}</div></nav><div class="view-content-fullscreen" ng-class="{'top0':$ctrl.main}" style="height: 100%;" ui-view></div></div><style>.container-fluid {
+        border: 2px solid #E1E1E1;
+    }
+
+    .modal-head {
+        background-color: #C4D5E6;
+        width: 100%;
+        height: 30px;
+    }
+
+    .modal-head>.modal-title {
+        height: 30px;
+        padding-left: 10px;
+        line-height: 30px;
+    }
+
+    .modal-body-top {
+        background-color: #FCFAFA;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .modal-body-top {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .modal-item {
+        margin: 5px;
+        text-align: center;
+    }
+
+    .modal-item>label {
+        display: inline-block;
+        width: 80px;
+        text-align: right;
+    }
+
+    .modal-item>.setInput {
+        border: 1px solid #F0EDEE;
+        width: 300px;
+    }
+
+    .modal-item>.disabled {
+        background-color: #FCFAFA
+    }
+
+    .b-b {
+        border-bottom: 1px solid #F8F7F7;
+    }
+
+    .modal-foot {
+        background-color: #FCFAFA;
+        border-top: 0;
+    }
+
+    .ok {
+        background-color: #77A5DE;
+        color: #fff;
+        border: 0;
+    }
+
+    .cancel {
+        background-color: #fff;
+        color: #77A5DE;
+        border: 0;
+    }</style><script type="text/ng-template" id="set.html"><div class="container-fluid p0">
+        <div class="modal-head">
+            <div class="modal-title">设置
+            </div>
+        </div>
+        <div class="modal-body-top">
+            <div class="modal-item">
+                <label>项目名称</label>
+                <input type="text" ng-model="setInfo.title" class="setInput" />
+            </div>
+            <div class="modal-item">
+                <label>社会属性</label>
+                <input type="text" ng-model="setInfo.sector" class="setInput" />
+            </div>
+            <div class="modal-item">
+                <label>面积</label>
+                <input type="text" ng-model="setInfo.area" class="setInput" />
+            </div>
+            <div class="modal-item b-b">
+                <label>人数</label>
+                <input type="text" ng-model="setInfo.people" class="setInput" />
+            </div>
+        </div>
+        <div class="modal-bottom">
+            <div class="modal-item">
+                <label>登录账号</label>
+                <input type="text" ng-model="setInfo.account" disabled class="disabled setInput" />
+            </div>
+            <div class="modal-item">
+                <label>设置新密码</label>
+                <input type="password" ng-model="setInfo.password" class="setInput" />
+            </div>
+            <div class="modal-item">
+                <label> 重复新密码</label>
+                <input type="password" ng-model="setInfo.pwd" class="setInput" />
+            </div>
+            <div class="modal-item">
+                <label>邮箱</label>
+                <input type="text" ng-model="setInfo.email" class="setInput" />
+            </div>
+            <div class="modal-item">
+                <label>手机</label>
+                <input type="text" ng-model="setInfo.phone" class="setInput" />
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" ng-click="OnCancel()">
+                取消
+            </button>
+            <button type="button" ng-click="OnSubmit()">
+                修改
+            </button>
+        </div>
+    </div></script>
